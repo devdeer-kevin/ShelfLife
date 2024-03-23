@@ -11,7 +11,7 @@ namespace ShelfLife.BaseTypes
         //summary
         // The price of the book.
         //summary
-        public int? Price { get; set; }
+        public double? Price { get; set; }
         
         //summary
         // The ISBN of the book.
