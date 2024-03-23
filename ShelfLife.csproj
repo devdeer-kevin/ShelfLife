@@ -7,4 +7,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="BookShelf.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\**" />
+  </ItemGroup>
+
 </Project>
