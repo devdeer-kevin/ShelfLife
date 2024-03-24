@@ -8,7 +8,7 @@ var bookShelf = new BookShelf();
 
 while (true)
 {
-    Console.WriteLine("Choose an option:");
+    Console.WriteLine("\nChoose an option:");
     Console.WriteLine("1. Add a book");
     Console.WriteLine("2. Remove a book");
     Console.WriteLine("3. Calculate total cost");
@@ -19,29 +19,35 @@ while (true)
     switch (option)
     {
         case "1": 
-            Console.WriteLine("Enter the title of the book:\n");
+            Console.WriteLine("Enter the title of the book:");
             var title = Console.ReadLine();
-            Console.WriteLine("Enter the price of the book:\n");
+            Console.WriteLine("\nEnter the price of the book:");
             var priceInput = Console.ReadLine();
             if (!decimal.TryParse(priceInput, out var price))
             {
-                Console.WriteLine("Invalid price. Please enter a valid decimal number.\n");
+                Console.WriteLine("\nInvalid price. Please enter a valid decimal number.");
                 break; 
             }
-            Console.WriteLine("Enter the ISBN of the book:\n");
+            Console.WriteLine("\nEnter the ISBN of the book:");
             var isbn = Console.ReadLine();
-            bookShelf.AddBook(new Book(title, price, isbn));
+            if (title != null)
+            {
+                if (isbn != null)
+                {
+                    bookShelf.AddBook(new Book(title, price, isbn));
+                }
+            }
             break;
         case "2":
-            Console.WriteLine("Enter the ISBN of the book to remove:\n");
+            Console.WriteLine("\nEnter the ISBN of the book to remove:");
             var isbnToRemove = Console.ReadLine();
-            if (bookShelf.RemoveBook(isbnToRemove))
+            if (isbnToRemove != null && bookShelf.RemoveBook(isbnToRemove))
             {
-                Console.WriteLine("Book removed successfully.\n");
+                Console.WriteLine("\nBook removed successfully.");
             }
             else
             {
-                Console.WriteLine("Book not found.\n");
+                Console.WriteLine("\nBook not found.");
             }
             break;
         case "3":
