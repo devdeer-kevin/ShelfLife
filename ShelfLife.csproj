@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <Compile Remove="Interfaces\**" />
-    <Compile Remove="BookShelf.cs" />
+    <Compile Remove="BookShelfRunner.cs" />
   </ItemGroup>
 
   <ItemGroup>
