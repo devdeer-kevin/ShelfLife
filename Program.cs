@@ -12,7 +12,8 @@ while (true)
     Console.WriteLine("1. Add a book");
     Console.WriteLine("2. Remove a book");
     Console.WriteLine("3. Calculate total cost");
-    Console.WriteLine("4. Exit\n");
+    Console.WriteLine("4. Show all books");
+    Console.WriteLine("5. Exit\n");
     var option = Console.ReadLine(); 
     Console.WriteLine();
     
@@ -54,6 +55,10 @@ while (true)
             Console.WriteLine($"Total cost of books: \n{bookShelf.TotalCost()}\n");
             break;
         case "4":
+            Console.WriteLine("Books on the shelf:");
+            bookShelf.ShowBooks();
+            break;
+        case "5":
             return; 
         default:
             Console.WriteLine("Invalid option. Please try again.\n");

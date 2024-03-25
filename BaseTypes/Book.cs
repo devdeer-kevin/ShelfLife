@@ -7,6 +7,14 @@ namespace ShelfLife.BaseTypes
         // The title of the book.
         //summary
         public string Title { get; set; } = title;
+        
+        //summary
+        // Returns the title of the book.
+        //returns
+        public override string ToString()
+        {
+            return Title;
+        }
 
         //summary
         // The price of the book.

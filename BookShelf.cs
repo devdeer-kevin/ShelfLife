@@ -9,7 +9,18 @@ namespace ShelfLife
         //summary
         // The list of books on the shelf.
         //summary
-        private List<Book> books = new List<Book>();
+        private readonly List<Book> _books = [];
+        
+        //summary
+        // Shows all books on the shelf.
+        //summary
+        public void ShowBooks()
+        {
+            foreach (var book in _books)
+            {
+                Console.WriteLine(book);
+            }
+        }
         
         //summary
         // Adds a book to the shelf.
@@ -18,7 +29,7 @@ namespace ShelfLife
         //summary
         public void AddBook(Book book)
         {
-            books.Add(book);
+            _books.Add(book);
         }
 
         //summary
@@ -31,8 +42,13 @@ namespace ShelfLife
         // summary
         public bool RemoveBook(string isbn)
         {
-            var book = books.FirstOrDefault(b => b.Isbn == isbn);
-            return book == null;
+            var book = _books.FirstOrDefault(b => b.Isbn == isbn);
+            if (book == null)
+            {
+                return false;
+            }
+            _books.Remove(book);
+            return true;
         }
 
         //summary
@@ -43,7 +59,7 @@ namespace ShelfLife
         //summary
         public decimal TotalCost()
         {
-            return books.Sum(b => b.Price);
+            return _books.Sum(b => b.Price);
         }
     }
 }
